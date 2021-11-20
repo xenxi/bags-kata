@@ -38,6 +38,17 @@ namespace BagKata.Test
 
             printer.Received(1).Print(printedBackpack);
         }
+        [Test]
+        public void print_two_items_in_the_backpack()
+        {
+            var printer = Substitute.For<IPrinter>();
+            var durance = new Character(printer);
+            durance.Add("anyItem");
+            durance.Add("otherItem");
 
+            durance.PrintInventory();
+
+            printer.Received(1).Print("backpack = ['anyItem', 'otherItem']");
+        }
     }
 }
