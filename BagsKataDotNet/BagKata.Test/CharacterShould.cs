@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NSubstitute;
+﻿using NSubstitute;
 using NUnit.Framework;
 
 namespace BagKata.Test
@@ -28,31 +25,8 @@ namespace BagKata.Test
 
         }
 
-        [Test]
-        public void print_space_hampster_in_the_backpack()
-        {
-            var printer = Substitute.For<IPrinter>();
-            var durance = new Character(printer);
-            durance.Add("Space Hampster");
 
-            durance.PrintInventory();
-
-            printer.Received(1).Print("backpack = ['Space Hampster']");
-        }
-
-        [Test]
-        public void print_space_tomato_in_the_backpack()
-        {
-            var printer = Substitute.For<IPrinter>();
-            var durance = new Character(printer);
-            durance.Add("Space Tomato");
-
-            durance.PrintInventory();
-
-            printer.Received(1).Print("backpack = ['Space Tomato']");
-        }
-
-        [TestCase("Space Hamster", "backpack = ['Space Hampster']")]
+        [TestCase("Space Hampster", "backpack = ['Space Hampster']")]
         [TestCase("Space Tomato", "backpack = ['Space Tomato']")]
         public void print_one_item_in_the_backpack(string item, string printedBackpack)
         {
