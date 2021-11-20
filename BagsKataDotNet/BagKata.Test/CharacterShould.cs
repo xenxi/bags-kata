@@ -38,7 +38,18 @@ namespace BagKata.Test
             durance.PrintInventory();
 
             printer.Received(1).Print("backpack = ['Space Hampster']");
+        }
 
+        [Test]
+        public void print_other_item_in_the_backpack()
+        {
+            var printer = Substitute.For<IPrinter>();
+            var durance = new Character(printer);
+            durance.Add("Space Tomato");
+
+            durance.PrintInventory();
+
+            printer.Received(1).Print("backpack = ['Space Tomato']");
         }
     }
 }

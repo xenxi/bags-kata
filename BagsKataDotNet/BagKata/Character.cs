@@ -21,7 +21,7 @@ namespace BagKata
         public void PrintInventory()
         {
             if(_items.Any())
-                _printer.Print("backpack = ['Space Hampster']");
+                _printer.Print($"backpack = ['{_items.First()}']");
             else
                 _printer.Print("backpack = []");
 
