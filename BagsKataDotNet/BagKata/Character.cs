@@ -2,7 +2,7 @@
 {
     public class Character
     {
-        private IPrinter _printer;
+        private readonly IPrinter _printer;
 
         public Character(IPrinter printer)
         {
