@@ -20,12 +20,16 @@ namespace BagKata
 
         public void PrintInventory()
         {
-            _printer.Print($"backpack = [{string.Join(", ", _items.Select(x => $"'{x}'"))}]");
+            PrintBackpack();
 
             _printer.Print("bag_with_metals_category = []");
             _printer.Print("bag_with_no_category = []");
             _printer.Print("bag_with_weapons_category = []");
             _printer.Print("bag_with_no_category = []");
         }
+
+        private void PrintBackpack() => _printer.Print($"backpack = [{PrintItems(_items)}]");
+
+        private static string PrintItems(IEnumerable<string> items) => string.Join(", ", items.Select(x => $"'{x}'"));
     }
 }
