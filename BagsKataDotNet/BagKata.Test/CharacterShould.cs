@@ -29,7 +29,7 @@ namespace BagKata.Test
         }
 
         [Test]
-        public void print_one_item_in_the_backpack()
+        public void print_space_hampster_in_the_backpack()
         {
             var printer = Substitute.For<IPrinter>();
             var durance = new Character(printer);
@@ -41,7 +41,7 @@ namespace BagKata.Test
         }
 
         [Test]
-        public void print_other_item_in_the_backpack()
+        public void print_space_tomato_in_the_backpack()
         {
             var printer = Substitute.For<IPrinter>();
             var durance = new Character(printer);
@@ -51,5 +51,7 @@ namespace BagKata.Test
 
             printer.Received(1).Print("backpack = ['Space Tomato']");
         }
+
+
     }
 }
