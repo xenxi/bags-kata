@@ -6,7 +6,7 @@
 
         public Character(IPrinter printer)
         {
-            this._printer = printer;
+            _printer = printer;
         }
 
         public void Add(string leather)
