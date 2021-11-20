@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31605.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BagKata", "BagKata\BagKata.csproj", "{B9D11530-083E-4655-B27E-6FE5F59508C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BagKata.Test", "BagKata.Test\BagKata.Test.csproj", "{965CA612-071C-44D1-8517-503106151DDB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B9D11530-083E-4655-B27E-6FE5F59508C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D11530-083E-4655-B27E-6FE5F59508C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D11530-083E-4655-B27E-6FE5F59508C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D11530-083E-4655-B27E-6FE5F59508C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{965CA612-071C-44D1-8517-503106151DDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{965CA612-071C-44D1-8517-503106151DDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{965CA612-071C-44D1-8517-503106151DDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{965CA612-071C-44D1-8517-503106151DDB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8589D019-DF9D-43CD-AD75-4A60C323D36C}
+	EndGlobalSection
+EndGlobal
