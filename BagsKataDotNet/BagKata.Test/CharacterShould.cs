@@ -27,5 +27,18 @@ namespace BagKata.Test
             });
 
         }
+
+        [Test]
+        public void print_one_item_in_the_backpack()
+        {
+            var printer = Substitute.For<IPrinter>();
+            var durance = new Character(printer);
+            durance.Add("Space Hampster");
+
+            durance.PrintInventory();
+
+            printer.Received(1).Print("backpack = ['Space Hampster']");
+
+        }
     }
 }
