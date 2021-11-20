@@ -20,10 +20,7 @@ namespace BagKata
 
         public void PrintInventory()
         {
-            if(_items.Any())
-                _printer.Print($"backpack = [{string.Join(", ", _items.Select(x => $"'{x}'"))}]");
-            else
-                _printer.Print("backpack = []");
+            _printer.Print($"backpack = [{string.Join(", ", _items.Select(x => $"'{x}'"))}]");
 
             _printer.Print("bag_with_metals_category = []");
             _printer.Print("bag_with_no_category = []");
