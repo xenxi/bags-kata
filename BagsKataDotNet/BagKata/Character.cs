@@ -18,10 +18,10 @@ namespace BagKata
 
         public void PrintInventory()
         {
-            printInventory(_printer, _inventory);
+            printInventory(_printer, _inventory, new InventoryPrinter());
         }
 
-        private static void printInventory(IPrinter printer, IInventory inventory)
+        private static void printInventory(IPrinter printer, IInventory inventory, InventoryPrinter inventoryPrinter)
         {
             IEnumerable<string> items = inventory.GetItems();
             printer.Print($"backpack = [{string.Join(", ", items.Select(x => $"'{x}'"))}]");
@@ -31,5 +31,9 @@ namespace BagKata
             printer.Print("bag_with_weapons_category = []");
             printer.Print("bag_with_no_category = []");
         }
+    }
+
+    public class InventoryPrinter
+    {
     }
 }
