@@ -18,16 +18,18 @@ namespace BagKata
 
         public void PrintInventory()
         {
-            PrintBackpack();
-
-            _printer.Print("bag_with_metals_category = []");
-            _printer.Print("bag_with_no_category = []");
-            _printer.Print("bag_with_weapons_category = []");
-            _printer.Print("bag_with_no_category = []");
+            printInventory(_printer, _inventory);
         }
 
-        private static string PrintItems(IEnumerable<string> items) => string.Join(", ", items.Select(x => $"'{x}'"));
+        private static void printInventory(IPrinter printer, IInventory inventory)
+        {
+            IEnumerable<string> items = inventory.GetItems();
+            printer.Print($"backpack = [{string.Join(", ", items.Select(x => $"'{x}'"))}]");
 
-        private void PrintBackpack() => _printer.Print($"backpack = [{PrintItems(_inventory.GetItems())}]");
+            printer.Print("bag_with_metals_category = []");
+            printer.Print("bag_with_no_category = []");
+            printer.Print("bag_with_weapons_category = []");
+            printer.Print("bag_with_no_category = []");
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace BagKata
 {
@@ -7,6 +6,5 @@ namespace BagKata
     {
         void Add(string leather);
         IEnumerable<string> GetItems();
-
     }
 }
