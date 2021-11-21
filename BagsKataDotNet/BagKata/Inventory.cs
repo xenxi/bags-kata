@@ -16,5 +16,17 @@ namespace BagKata
             _secondBag = secondBag;
             _items = new List<string>();
         }
+
+        public void Add(string leather)
+        {
+            if (!_backpack.IsFull())
+                _backpack.Add(leather);
+            else if (!_bag.IsFull())
+                _bag.Add(leather);
+            else
+                _secondBag.Add(leather);
+
+            _items.Add(leather);
+        }
     }
 }

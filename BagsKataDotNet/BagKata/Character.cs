@@ -7,23 +7,14 @@ namespace BagKata
     {
         private readonly Inventory _inventory;
         private readonly IPrinter _printer;
+
         public Character(IPrinter printer, Inventory inventory)
         {
             _printer = printer;
             _inventory = inventory;
         }
 
-        public void Add(string leather)
-        {
-            if (!_inventory._backpack.IsFull())
-                _inventory._backpack.Add(leather);
-            else if (!_inventory._bag.IsFull())
-                _inventory._bag.Add(leather);
-            else
-                _inventory._secondBag.Add(leather);
-
-            _inventory._items.Add(leather);
-        }
+        public void Add(string leather) => _inventory.Add(leather);
 
         public void PrintInventory()
         {
