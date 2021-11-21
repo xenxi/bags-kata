@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace BagKata
 {
-    public class StringPrinter
+    public class InventoryPrinter : IInventoryPrinter
     {
         private readonly IPrinter _printer;
 
-        public StringPrinter(IPrinter printer)
+        public InventoryPrinter(IPrinter printer)
         {
             _printer = printer;
         }
