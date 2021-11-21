@@ -12,7 +12,7 @@ namespace BagKata
             _printer = printer;
         }
 
-        public void printInventory(IInventory inventory)
+        public void Print(IInventory inventory)
         {
             IEnumerable<string> items = inventory.GetItems();
 
