@@ -12,7 +12,7 @@ namespace BagKata.Test
         private IBackpack _backpack;
         private IBag _bag;
         private IBag _secondBag;
-        private Inventory _inventory;
+        private IInventory _inventory;
 
         [SetUp]
         public void SetUp()
