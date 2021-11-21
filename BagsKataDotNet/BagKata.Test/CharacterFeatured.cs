@@ -11,7 +11,9 @@ namespace BagKata.Test
         {
             var printer = Substitute.For<IPrinter>();
             var backpack = Substitute.For<IBackpack>();
-            var durance = new Character(printer, backpack);
+            var bag = Substitute.For<IBag>();
+            var secondBag = Substitute.For<IBag>();
+            var durance = new Character(printer, backpack, bag, secondBag);
             durance.Add("Leather");
             durance.Add("Iron");
             durance.Add("Copper");
