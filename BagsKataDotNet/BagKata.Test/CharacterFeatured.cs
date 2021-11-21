@@ -10,7 +10,8 @@ namespace BagKata.Test
         public void print_full_backpack()
         {
             var printer = Substitute.For<IPrinter>();
-            var durance = new Character(printer);
+            var backpack = Substitute.For<IBackpack>();
+            var durance = new Character(printer, backpack);
             durance.Add("Leather");
             durance.Add("Iron");
             durance.Add("Copper");

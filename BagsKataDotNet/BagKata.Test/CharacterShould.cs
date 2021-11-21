@@ -7,10 +7,23 @@ namespace BagKata.Test
     public class CharacterShould
     {
         [Test]
+        public void add_item_to_the_backpack()
+        {
+            var printer = Substitute.For<IPrinter>();
+            var backpack = Substitute.For<IBackpack>();
+            var durance = new Character(printer, backpack);
+
+            durance.Add("anyItem");
+
+            backpack.Received(1).Add("anyItem");
+        }
+
+        [Test]
         public void print_empty_inventory()
         {
             var printer = Substitute.For<IPrinter>();
-            var durance = new Character(printer);
+            var backpack = Substitute.For<IBackpack>();
+            var durance = new Character(printer, backpack);
 
             durance.PrintInventory();
 
@@ -31,7 +44,8 @@ namespace BagKata.Test
         public void print_one_item_in_the_backpack(string item, string printedBackpack)
         {
             var printer = Substitute.For<IPrinter>();
-            var durance = new Character(printer);
+            var backpack = Substitute.For<IBackpack>();
+            var durance = new Character(printer, backpack);
             durance.Add(item);
 
             durance.PrintInventory();
@@ -42,7 +56,8 @@ namespace BagKata.Test
         public void print_two_items_in_the_backpack()
         {
             var printer = Substitute.For<IPrinter>();
-            var durance = new Character(printer);
+            var backpack = Substitute.For<IBackpack>();
+            var durance = new Character(printer, backpack);
             durance.Add("anyItem");
             durance.Add("otherItem");
 

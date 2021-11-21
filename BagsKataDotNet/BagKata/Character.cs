@@ -6,15 +6,18 @@ namespace BagKata
     public class Character
     {
         private readonly IPrinter _printer;
+        private readonly IBackpack _backpack;
         private readonly List<string> _items;
-        public Character(IPrinter printer)
+        public Character(IPrinter printer, IBackpack backpack)
         {
             _printer = printer;
+            _backpack = backpack;
             _items = new List<string>();
         }
 
         public void Add(string leather)
         {
+            _backpack.Add(leather);
             _items.Add(leather);
         }
 
