@@ -5,14 +5,19 @@ namespace BagKata
 {
     public class Bag : IBag
     {
-        private List<string> _items = new List<string>();
+        private readonly List<string> _items = new List<string>();
 
         public void Add(string item)
         {
-            if (IsFull())
-                throw new InvalidOperationException("the bag is complete");
+            EnsureHasFreeSlots();
 
             _items.Add(item);
+        }
+
+        private void EnsureHasFreeSlots()
+        {
+            if (IsFull())
+                throw new InvalidOperationException("the bag is complete");
         }
 
         public int FreeSlots() => 4 - _items.Count;
