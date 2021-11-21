@@ -3,7 +3,7 @@
     public class Character
     {
         private readonly IInventory _inventory;
-        private readonly InventoryPrinter _inventoryPrinter;
+        private readonly IInventoryPrinter _inventoryPrinter;
 
         public Character(IPrinter printer, IInventory inventory)
         {
