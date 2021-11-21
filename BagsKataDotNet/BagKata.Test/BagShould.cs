@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using FluentAssertions;
 using NUnit.Framework;
 
 namespace BagKata.Test
@@ -9,9 +7,14 @@ namespace BagKata.Test
     public class BagShould
     {
         [Test]
-        public void test()
+        public void store_a_item()
         {
+            var aGivenItem = "anyItem";
+            var bag = new Bag();
 
+            bag.Add(aGivenItem);
+
+            bag.GetItems().Should().ContainSingle(aGivenItem);
         }
     }
 }

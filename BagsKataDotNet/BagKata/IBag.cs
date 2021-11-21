@@ -4,7 +4,7 @@ namespace BagKata
 {
     public interface IBag
     {
-        void Add(string aGivenAnyItem);
+        void Add(string item);
         bool IsFull();
         IEnumerable<string> GetItems();
     }

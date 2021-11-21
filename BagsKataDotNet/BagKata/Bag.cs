@@ -6,19 +6,14 @@ namespace BagKata
 {
     public class Bag : IBag
     {
-        public void Add(string aGivenAnyItem)
-        {
-            throw new NotImplementedException();
-        }
+        private List<string> _items = new List<string>();
+        public void Add(string item) => _items.Add(item);
 
         public bool IsFull()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<string> GetItems()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<string> GetItems() => _items.AsReadOnly();
     }
 }
