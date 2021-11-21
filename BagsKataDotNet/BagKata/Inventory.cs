@@ -2,7 +2,7 @@
 
 namespace BagKata
 {
-    public class Inventory
+    public class Inventory : IInventory
     {
         public readonly IBackpack _backpack;
         public readonly List<string> _items;
