@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace BagKata
 {
@@ -8,12 +7,17 @@ namespace BagKata
     {
         private List<string> _items = new List<string>();
 
-        public int FreeSlots() => 4 - _items.Count;
+        public void Add(string item)
+        {
+            if (IsFull())
+                throw new InvalidOperationException("the bag is complete");
 
-        public void Add(string item) => _items.Add(item);
+            _items.Add(item);
+        }
+
+        public int FreeSlots() => 4 - _items.Count;
+        public IEnumerable<string> GetItems() => _items.AsReadOnly();
 
         public bool IsFull() => FreeSlots() < 1;
-
-        public IEnumerable<string> GetItems() => _items.AsReadOnly();
     }
 }

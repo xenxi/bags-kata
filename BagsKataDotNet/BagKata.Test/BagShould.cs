@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using NUnit.Framework;
 
 namespace BagKata.Test
@@ -65,6 +66,20 @@ namespace BagKata.Test
             bag.Add("anyItem");
 
             bag.IsFull().Should().BeTrue();
+        }
+
+        [Test]
+        public void no_allow_add_new_item_when_its_full()
+        {
+            var bag = new Bag();
+            bag.Add("anyItem");
+            bag.Add("anyItem");
+            bag.Add("anyItem");
+            bag.Add("anyItem");
+
+            Action action = () => bag.Add("anyOtherItem");
+
+            action.Should().Throw<InvalidOperationException>();
         }
     }
 }
