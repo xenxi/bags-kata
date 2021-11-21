@@ -14,7 +14,7 @@ namespace BagKata
 
         public bool IsFull()
         {
-            throw new NotImplementedException();
+            return false;
         }
 
         public IEnumerable<string> GetItems() => _items.AsReadOnly();
