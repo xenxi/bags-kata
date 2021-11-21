@@ -6,11 +6,9 @@ namespace BagKata.Test
     [TestFixture]
     public class CharacterShould
     {
-        private IBackpack _backpack;
-        private IBag _bag;
-        private IBag _secondBag;
         private Character _durance;
         private IPrinter _printer;
+        private IInventory _inventory;
 
         [Test]
         public void print_empty_inventory()
@@ -53,10 +51,8 @@ namespace BagKata.Test
         public void SetUp()
         {
             _printer = Substitute.For<IPrinter>();
-            _backpack = Substitute.For<IBackpack>();
-            _bag = Substitute.For<IBag>();
-            _secondBag = Substitute.For<IBag>();
-            _durance = new Character(_printer, new Inventory(_backpack, _bag, _secondBag));
+            _inventory = Substitute.For<IInventory>();
+            _durance = new Character(_printer, _inventory);
         }
     }
 }
