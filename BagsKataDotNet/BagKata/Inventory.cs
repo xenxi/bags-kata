@@ -5,7 +5,7 @@ namespace BagKata
     public class Inventory : IInventory
     {
         public readonly IBackpack _backpack;
-        public readonly List<string> _items;
+        private readonly List<string> _items;
         public IBag _bag;
         public readonly IBag _secondBag;
 
@@ -28,5 +28,7 @@ namespace BagKata
 
             _items.Add(leather);
         }
+
+        public IEnumerable<string> GetItems() => _items;
     }
 }

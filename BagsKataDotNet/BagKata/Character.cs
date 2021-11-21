@@ -5,10 +5,10 @@ namespace BagKata
 {
     public class Character
     {
-        private readonly Inventory _inventory;
+        private readonly IInventory _inventory;
         private readonly IPrinter _printer;
 
-        public Character(IPrinter printer, Inventory inventory)
+        public Character(IPrinter printer, IInventory inventory)
         {
             _printer = printer;
             _inventory = inventory;
@@ -28,6 +28,6 @@ namespace BagKata
 
         private static string PrintItems(IEnumerable<string> items) => string.Join(", ", items.Select(x => $"'{x}'"));
 
-        private void PrintBackpack() => _printer.Print($"backpack = [{PrintItems(_inventory._items)}]");
+        private void PrintBackpack() => _printer.Print($"backpack = [{PrintItems(_inventory.GetItems())}]");
     }
 }
