@@ -12,6 +12,15 @@ namespace BagKata.Test
         private Character _durance;
         private IPrinter _printer;
 
+        [Test]
+        public void add_item_to_the_backpack()
+        {
+            var aGivenAnyItem = "anyItem";
+
+            _durance.Add(aGivenAnyItem);
+
+            _backpack.Received(1).Add(aGivenAnyItem);
+        }
 
         [Test]
         public void add_item_to_the_next_bag_when_previous_ones_are_full()

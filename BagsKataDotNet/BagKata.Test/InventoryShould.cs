@@ -43,5 +43,14 @@ namespace BagKata.Test
 
             _secondBag.Received(1).Add(aGivenAnyItem);
         }
+        [Test]
+        public void add_item_to_the_bag_when_backpack_is_full()
+        {
+            var aGivenAnyItem = "anyItem";
+            _backpack.IsFull().Returns(true);
+            _inventory.Add(aGivenAnyItem);
+
+            _bag.Received(1).Add(aGivenAnyItem);
+        }
     }
 }
