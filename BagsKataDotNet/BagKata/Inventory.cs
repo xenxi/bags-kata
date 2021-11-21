@@ -4,10 +4,10 @@ namespace BagKata
 {
     public class Inventory : IInventory
     {
-        public readonly IBackpack _backpack;
+        private readonly IBackpack _backpack;
         private readonly List<string> _items;
-        public IBag _bag;
-        public readonly IBag _secondBag;
+        private readonly IBag _bag;
+        private readonly IBag _secondBag;
 
         public Inventory(IBackpack backpack, IBag bag, IBag secondBag)
         {
