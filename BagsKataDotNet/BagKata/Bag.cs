@@ -12,10 +12,7 @@ namespace BagKata
 
         public void Add(string item) => _items.Add(item);
 
-        public bool IsFull()
-        {
-            return false;
-        }
+        public bool IsFull() => FreeSlots() < 1;
 
         public IEnumerable<string> GetItems() => _items.AsReadOnly();
     }
