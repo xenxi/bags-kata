@@ -8,7 +8,7 @@ namespace BagKata
     {
         private List<string> _items = new List<string>();
 
-        public int FreeSlots() => 4;
+        public int FreeSlots() => 4 - _items.Count;
 
         public void Add(string item) => _items.Add(item);
 

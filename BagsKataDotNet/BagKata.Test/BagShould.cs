@@ -31,5 +31,27 @@ namespace BagKata.Test
 
             bag.IsFull().Should().BeFalse();
         }
+        [Test]
+        public void has_3_free_slots_when_add_1_item()
+        {
+            var bag = new Bag();
+
+            bag.Add("anyItem");
+
+            bag.FreeSlots().Should().Be(3);
+        }
+
+        [Test]
+        public void has_0_free_slots_when_add_4_items()
+        {
+            var bag = new Bag();
+            bag.Add("anyItem");
+            bag.Add("anyItem");
+            bag.Add("anyItem");
+
+            bag.Add("anyItem");
+
+            bag.FreeSlots().Should().Be(0);
+        }
     }
 }
