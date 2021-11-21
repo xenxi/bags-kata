@@ -5,6 +5,7 @@ namespace BagKata
 {
     public class Bag : IBag
     {
+        private const int Capacity = 4;
         private readonly List<string> _items = new List<string>();
 
         public void Add(string item)
@@ -20,7 +21,7 @@ namespace BagKata
                 throw new InvalidOperationException("the bag is complete");
         }
 
-        public int FreeSlots() => 4 - _items.Count;
+        public int FreeSlots() => Capacity - _items.Count;
         public IEnumerable<string> GetItems() => _items.AsReadOnly();
 
         public bool IsFull() => FreeSlots() < 1;
