@@ -16,5 +16,13 @@ namespace BagKata.Test
 
             bag.GetItems().Should().ContainSingle(aGivenItem);
         }
+        [Test]
+        public void has_4_free_slots_when_its_empty()
+        {
+            var bag = new Bag();
+            
+            bag.FreeSlots().Should().Be(4);
+        }
+
     }
 }
