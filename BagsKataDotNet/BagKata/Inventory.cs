@@ -1,34 +1,32 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BagKata
 {
     public class Inventory : IInventory
     {
-        private readonly IBackpack _backpack;
-        private readonly List<string> _items;
-        private readonly IBag _bag;
-        private readonly IBag _secondBag;
 
-        public Inventory(IBackpack backpack, IBag bag, IBag secondBag)
+
+        private IList<IBag> _bags;
+
+
+        public Inventory(IList<IBag> bags)
         {
-            _backpack = backpack;
-            _bag = bag;
-            _secondBag = secondBag;
-            _items = new List<string>();
+            _bags = bags;
         }
 
         public void Add(string leather)
         {
-            if (!_backpack.IsFull())
-                _backpack.Add(leather);
-            else if (!_bag.IsFull())
-                _bag.Add(leather);
-            else
-                _secondBag.Add(leather);
-
-            _items.Add(leather);
+            foreach (var bag in _bags)
+            {
+                if(!bag.IsFull())
+                {
+                    bag.Add(leather);
+                    return;
+                }
+            }
         }
 
-        public IEnumerable<string> GetItems() => _items;
+        public IEnumerable<string> GetItems() => _bags.SelectMany(x => x.GetItems());
     }
 }

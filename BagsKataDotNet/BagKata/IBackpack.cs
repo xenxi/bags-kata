@@ -1,6 +1,6 @@
 ﻿namespace BagKata
 {
-    public interface IBackpack
+    public interface IBackpack 
     {
         void Add(string anyitem);
         bool IsFull();

@@ -1,4 +1,5 @@
-﻿using NSubstitute;
+﻿using System.Collections.Generic;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace BagKata.Test
@@ -11,10 +12,10 @@ namespace BagKata.Test
         {
             var printer = Substitute.For<IPrinter>();
             var inventoryPrinter = new InventoryPrinter(printer);
-            var backpack = Substitute.For<IBackpack>();
-            var bag = Substitute.For<IBag>();
-            var secondBag = Substitute.For<IBag>();
-            var durance = new Character(inventoryPrinter, new Inventory(backpack, bag, secondBag));
+            var backpack = new Bag();
+            var bag = new Bag();
+            var secondBag = new Bag();
+            var durance = new Character(inventoryPrinter, new Inventory(new List<IBag>{ backpack, bag, secondBag }));
             durance.Add("Leather");
             durance.Add("Iron");
             durance.Add("Copper");
@@ -41,10 +42,10 @@ namespace BagKata.Test
         {
             var printer = Substitute.For<IPrinter>();
             var inventoryPrinter = new InventoryPrinter(printer);
-            var backpack = Substitute.For<IBackpack>();
-            var bag = Substitute.For<IBag>();
-            var secondBag = Substitute.For<IBag>();
-            var durance = new Character(inventoryPrinter, new Inventory(backpack, bag, secondBag));
+            var backpack = new Bag();
+            var bag = new Bag();
+            var secondBag = new Bag();
+            var durance = new Character(inventoryPrinter, new Inventory(new List<IBag>{ backpack, bag, secondBag }));
             durance.Add("Leather");
             durance.Add("Iron");
             durance.Add("Copper");

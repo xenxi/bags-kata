@@ -1,4 +1,5 @@
-﻿using NSubstitute;
+﻿using System.Collections.Generic;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace BagKata.Test
@@ -6,7 +7,7 @@ namespace BagKata.Test
     [TestFixture]
     public class InventoryShould
     {
-        private IBackpack _backpack;
+        private IBag _backpack;
         private IBag _bag;
         private IBag _secondBag;
         private IInventory _inventory;
@@ -14,10 +15,10 @@ namespace BagKata.Test
         [SetUp]
         public void SetUp()
         {
-            _backpack = Substitute.For<IBackpack>();
+            _backpack = Substitute.For<IBag>();
             _bag = Substitute.For<IBag>();
             _secondBag = Substitute.For<IBag>();
-            _inventory = new Inventory(_backpack, _bag, _secondBag);
+            _inventory = new Inventory(new List<IBag>{ _backpack, _bag, _secondBag });
         }
 
         [Test]
