@@ -5,10 +5,10 @@
         private readonly IInventory _inventory;
         private readonly IInventoryPrinter _inventoryPrinter;
 
-        public Character(IPrinter printer, IInventory inventory)
+        public Character(IInventoryPrinter printer, IInventory inventory)
         {
             _inventory = inventory;
-            _inventoryPrinter = new InventoryPrinter(printer);
+            _inventoryPrinter = printer;
         }
 
         public void Add(string leather) => _inventory.Add(leather);
