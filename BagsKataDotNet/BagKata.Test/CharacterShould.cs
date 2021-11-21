@@ -12,10 +12,11 @@ namespace BagKata.Test
             var printer = Substitute.For<IPrinter>();
             var backpack = Substitute.For<IBackpack>();
             var durance = new Character(printer, backpack);
+            var aGivenAnyItem = "anyItem";
 
-            durance.Add("anyItem");
+            durance.Add(aGivenAnyItem);
 
-            backpack.Received(1).Add("anyItem");
+            backpack.Received(1).Add(aGivenAnyItem);
         }
 
         [Test]
