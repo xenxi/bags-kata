@@ -5,13 +5,12 @@ namespace BagKata
 {
     public class Character
     {
-        private readonly IPrinter _printer;
         private readonly Inventory _inventory;
-
-        public Character(IPrinter printer, IBackpack backpack, IBag bag, IBag _secondBag)
+        private readonly IPrinter _printer;
+        public Character(IPrinter printer, Inventory inventory)
         {
             _printer = printer;
-            _inventory = new Inventory(backpack, bag, _secondBag);
+            _inventory = inventory;
         }
 
         public void Add(string leather)

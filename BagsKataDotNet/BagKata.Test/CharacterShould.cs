@@ -85,7 +85,7 @@ namespace BagKata.Test
             _backpack = Substitute.For<IBackpack>();
             _bag = Substitute.For<IBag>();
             _secondBag = Substitute.For<IBag>();
-            _durance = new Character(_printer, _backpack, _bag, _secondBag);
+            _durance = new Character(_printer, new Inventory(_backpack, _bag, _secondBag));
         }
     }
 }
