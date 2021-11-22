@@ -7,66 +7,70 @@ namespace BagKata.Test
     [TestFixture]
     public class CharacterFeatured
     {
+        private IPrinter _printer;
+        private InventoryPrinter _inventoryPrinter;
+        private Backpack _backpack;
+        private Bag _bag;
+        private Bag _secondBag;
+        private Character _durance;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _printer = Substitute.For<IPrinter>();
+            _inventoryPrinter = new InventoryPrinter(_printer);
+            _backpack = new Backpack();
+            _bag = new Bag();
+            _secondBag = new Bag();
+            _durance = new Character(_inventoryPrinter, new Inventory(new List<IBag> { _backpack, _bag, _secondBag }));
+        }
         [Test]
         public void print_full_backpack()
         {
-            var printer = Substitute.For<IPrinter>();
-            var inventoryPrinter = new InventoryPrinter(printer);
-            var backpack = new Bag();
-            var bag = new Bag();
-            var secondBag = new Bag();
-            var durance = new Character(inventoryPrinter, new Inventory(new List<IBag>{ backpack, bag, secondBag }));
-            durance.Add("Leather");
-            durance.Add("Iron");
-            durance.Add("Copper");
-            durance.Add("Marigold");
-            durance.Add("Wool");
-            durance.Add("Gold");
-            durance.Add("Silk");
-            durance.Add("Copper");
+            _durance.Add("Leather");
+            _durance.Add("Iron");
+            _durance.Add("Copper");
+            _durance.Add("Marigold");
+            _durance.Add("Wool");
+            _durance.Add("Gold");
+            _durance.Add("Silk");
+            _durance.Add("Copper");
 
-            durance.PrintInventory();
+            _durance.PrintInventory();
 
             Received.InOrder(() =>
             {
-                printer.Print("backpack = ['Leather', 'Iron', 'Copper', 'Marigold', 'Wool', 'Gold', 'Silk', 'Copper']");
-                printer.Print("bag_with_metals_category = []");
-                printer.Print("bag_with_no_category = []");
-                printer.Print("bag_with_weapons_category = []");
-                printer.Print("bag_with_no_category = []");
+                _printer.Print("backpack = ['Leather', 'Iron', 'Copper', 'Marigold', 'Wool', 'Gold', 'Silk', 'Copper']");
+                _printer.Print("bag_with_metals_category = []");
+                _printer.Print("bag_with_no_category = []");
+                _printer.Print("bag_with_weapons_category = []");
+                _printer.Print("bag_with_no_category = []");
             });
         }
 
         [Test]
         public void print_full_backpack_with_two_items_in_the_following_bag()
         {
-            var printer = Substitute.For<IPrinter>();
-            var inventoryPrinter = new InventoryPrinter(printer);
-            var backpack = new Bag();
-            var bag = new Bag();
-            var secondBag = new Bag();
-            var durance = new Character(inventoryPrinter, new Inventory(new List<IBag>{ backpack, bag, secondBag }));
-            durance.Add("Leather");
-            durance.Add("Iron");
-            durance.Add("Copper");
-            durance.Add("Marigold");
-            durance.Add("Wool");
-            durance.Add("Gold");
-            durance.Add("Silk");
-            durance.Add("Copper");
-            durance.Add("Copper");
-            durance.Add("Cherry Blossom");
+            _durance.Add("Leather");
+            _durance.Add("Iron");
+            _durance.Add("Copper");
+            _durance.Add("Marigold");
+            _durance.Add("Wool");
+            _durance.Add("Gold");
+            _durance.Add("Silk");
+            _durance.Add("Copper");
+            _durance.Add("Copper");
+            _durance.Add("Cherry Blossom");
 
-            durance.PrintInventory();
+            _durance.PrintInventory();
 
             Received.InOrder(() =>
             {
-                printer.Print("backpack = ['Leather', 'Iron', 'Copper', 'Marigold', 'Wool', 'Gold', 'Silk', 'Copper']");
-                printer.Print("bag_with_metals_category = ['Copper', 'Cherry Blossom']");
-                printer.Print("bag_with_no_category = []");
-                printer.Print("bag_with_weapons_category = []");
-                printer.Print("bag_with_no_category = []");
-
+                _printer.Print("backpack = ['Leather', 'Iron', 'Copper', 'Marigold', 'Wool', 'Gold', 'Silk', 'Copper']");
+                _printer.Print("bag_with_metals_category = ['Copper', 'Cherry Blossom']");
+                _printer.Print("bag_with_no_category = []");
+                _printer.Print("bag_with_weapons_category = []");
+                _printer.Print("bag_with_no_category = []");
             });
         }
     }
