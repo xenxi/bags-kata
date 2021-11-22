@@ -70,8 +70,7 @@ namespace BagKata.Test
             bag.Add("anyItem");
             bag.Add("anyItem");
             bag.Add("anyItem");
-            bag.Add("anyItem");
-
+            
             bag.Add("anyItem");
 
             bag.IsFull().Should().BeTrue();
