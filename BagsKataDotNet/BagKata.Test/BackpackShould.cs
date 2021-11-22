@@ -45,29 +45,29 @@ namespace BagKata.Test
         [Test]
         public void has_0_free_slots_when_add_8_items()
         {
-            var bag = new Backpack();
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
+            var bag = AGivenFullBackpack();
 
-            bag.Add("anyItem");
+            var freeSlots = bag.FreeSlots();
 
-            bag.FreeSlots().Should().Be(0);
+            freeSlots.Should().Be(0);
         }
 
         [Test]
         public void be_full_when_add_8_items()
         {
-            var bag = new Backpack();
+            var bag = AGivenFullBackpack();
 
+            var isFull = bag.IsFull();
+
+            isFull.Should().BeTrue();
+        }
+
+        private static Backpack AGivenFullBackpack()
+        {
+            var bag = new Backpack();
             for (int i = 0; i < 8; i++)
                 bag.Add("anyItem");
-
-            bag.IsFull().Should().BeTrue();
+            return bag;
         }
 
         [Test]
