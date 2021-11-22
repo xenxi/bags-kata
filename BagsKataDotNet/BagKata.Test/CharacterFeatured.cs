@@ -9,9 +9,6 @@ namespace BagKata.Test
     {
         private IPrinter _printer;
         private InventoryPrinter _inventoryPrinter;
-        private Backpack _backpack;
-        private Bag _bag;
-        private Bag _secondBag;
         private Character _durance;
 
         [SetUp]
@@ -19,10 +16,16 @@ namespace BagKata.Test
         {
             _printer = Substitute.For<IPrinter>();
             _inventoryPrinter = new InventoryPrinter(_printer);
-            _backpack = new Backpack();
-            _bag = new Bag(Category.Clothes);
-            _secondBag = new Bag(Category.Clothes);
-            _durance = new Character(_inventoryPrinter, new Inventory(new List<IBag> { _backpack, _bag, _secondBag }));
+            var bags = new List<IBag>
+            {
+                new Backpack(),
+                new Bag(Category.Metals),
+                new Bag(Category.NoCategory),
+                new Bag(Category.Weapons),
+                new Bag(Category.NoCategory),
+            };
+
+            _durance = new Character(_inventoryPrinter, new Inventory(bags));
         }
         [Test]
         public void print_full_backpack()
