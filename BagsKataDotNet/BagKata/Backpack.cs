@@ -23,6 +23,7 @@ namespace BagKata
 
         public int FreeSlots() => Capacity - _items.Count;
         public IEnumerable<string> GetItems() => _items.AsReadOnly();
+        public Category Category => Category.NoCategory;
 
         public bool IsFull() => FreeSlots() < 1;
     }

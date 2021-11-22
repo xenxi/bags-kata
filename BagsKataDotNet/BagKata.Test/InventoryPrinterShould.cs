@@ -9,12 +9,20 @@ namespace BagKata.Test
     {
         private InventoryPrinter _inventory;
         private IPrinter _printer;
+
         [Test]
         public void print_empty_inventory()
         {
-            var aGivenEmptyInventory = Substitute.For<IInventory>();
+            var aGivenBags = new List<IBag>
+            {
+                new Backpack(),
+                new Bag(Category.Metals),
+                new Bag(Category.NoCategory),
+                new Bag(Category.Weapons),
+                new Bag(Category.NoCategory),
+            };
 
-            _inventory.Print(aGivenEmptyInventory);
+            _inventory.Print(aGivenBags);
 
             Received.InOrder(() =>
             {
@@ -26,14 +34,26 @@ namespace BagKata.Test
             });
         }
 
+        [TestCase(Category.NoCategory, "bag_with_no_category = []")]
+        [TestCase(Category.Metals, "bag_with_metals = []")]
+        [TestCase(Category.Weapons, "bag_with_weapons = []")]
+        [TestCase(Category.Clothes, "bag_with_clothes = []")]
+        [TestCase(Category.Herbs, "bag_with_herbs = []")]
+        public void print_bag_with_category(Category bagCategory, string expected)
+        {
+            _inventory.Print(new List<IBag> { new Bag(bagCategory) });
+
+            _printer.Received(1).Print(expected);
+        }
+
         [TestCase("Space Hampster", "backpack = ['Space Hampster']")]
         [TestCase("Space Tomato", "backpack = ['Space Tomato']")]
         public void print_one_item_in_the_backpack(string item, string printedBackpack)
         {
-            var aGivenInventoryWithOneItem = Substitute.For<IInventory>();
-            aGivenInventoryWithOneItem.GetItems().Returns(new List<string> { item });
+            var aGivenBackpack = new Backpack();
+            aGivenBackpack.Add(item);
 
-            _inventory.Print(aGivenInventoryWithOneItem);
+            _inventory.Print(new List<IBag>{aGivenBackpack});
 
             _printer.Received(1).Print(printedBackpack);
         }
@@ -41,10 +61,11 @@ namespace BagKata.Test
         [Test]
         public void print_two_items_in_the_backpack()
         {
-            var aGivenInventoryWithTwoItems = Substitute.For<IInventory>();
-            aGivenInventoryWithTwoItems.GetItems().Returns(new List<string> { "anyItem", "otherItem" });
+            var aGivenBackpack = new Backpack();
+            aGivenBackpack.Add("anyItem");
+            aGivenBackpack.Add("otherItem");
 
-            _inventory.Print(aGivenInventoryWithTwoItems);
+            _inventory.Print(new List<IBag> { aGivenBackpack });
 
             _printer.Received(1).Print("backpack = ['anyItem', 'otherItem']");
         }

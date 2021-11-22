@@ -13,6 +13,6 @@
 
         public void Add(string leather) => _inventory.Add(leather);
 
-        public void PrintInventory() => _inventoryPrinter.Print(_inventory);
+        public void PrintInventory() => _inventoryPrinter.Print(_inventory.GetBags());
     }
 }

@@ -27,6 +27,8 @@ namespace BagKata
             }
         }
 
+        public IEnumerable<IBag> GetBags() => _bags;
+
         public IEnumerable<string> GetItems() => _bags.SelectMany(x => x.GetItems());
     }
 }

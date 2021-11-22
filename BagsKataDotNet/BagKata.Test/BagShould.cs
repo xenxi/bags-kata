@@ -11,7 +11,7 @@ namespace BagKata.Test
         public void store_a_item()
         {
             var aGivenItem = "anyItem";
-            var bag = new Bag();
+            var bag = new Bag(Category.NoCategory);
 
             bag.Add(aGivenItem);
 
@@ -20,7 +20,7 @@ namespace BagKata.Test
         [Test]
         public void has_4_free_slots_when_its_empty()
         {
-            var bag = new Bag();
+            var bag = new Bag(Category.NoCategory);
             
             bag.FreeSlots().Should().Be(4);
         }
@@ -28,14 +28,14 @@ namespace BagKata.Test
         [Test]
         public void be_not_full_when_its_empty()
         {
-            var bag = new Bag();
+            var bag = new Bag(Category.NoCategory);
 
             bag.IsFull().Should().BeFalse();
         }
         [Test]
         public void has_3_free_slots_when_add_1_item()
         {
-            var bag = new Bag();
+            var bag = new Bag(Category.NoCategory);
 
             bag.Add("anyItem");
 
@@ -45,7 +45,7 @@ namespace BagKata.Test
         [Test]
         public void has_0_free_slots_when_add_4_items()
         {
-            var bag = new Bag();
+            var bag = new Bag(Category.NoCategory);
             bag.Add("anyItem");
             bag.Add("anyItem");
             bag.Add("anyItem");
@@ -58,7 +58,7 @@ namespace BagKata.Test
         [Test]
         public void be_full_when_not_have_free_slots()
         {
-            var bag = new Bag();
+            var bag = new Bag(Category.NoCategory);
             bag.Add("anyItem");
             bag.Add("anyItem");
             bag.Add("anyItem");
@@ -71,7 +71,7 @@ namespace BagKata.Test
         [Test]
         public void no_allow_add_new_item_when_its_full()
         {
-            var bag = new Bag();
+            var bag = new Bag(Category.NoCategory);
             bag.Add("anyItem");
             bag.Add("anyItem");
             bag.Add("anyItem");

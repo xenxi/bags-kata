@@ -7,5 +7,6 @@ namespace BagKata
         void Add(string item);
         bool IsFull();
         IEnumerable<string> GetItems();
+        Category Category { get; }
     }
 }

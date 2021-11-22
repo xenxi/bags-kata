@@ -6,5 +6,6 @@ namespace BagKata
     {
         void Add(string leather);
         IEnumerable<string> GetItems();
+        IEnumerable<IBag> GetBags();
     }
 }

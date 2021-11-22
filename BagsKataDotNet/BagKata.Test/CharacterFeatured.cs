@@ -20,8 +20,8 @@ namespace BagKata.Test
             _printer = Substitute.For<IPrinter>();
             _inventoryPrinter = new InventoryPrinter(_printer);
             _backpack = new Backpack();
-            _bag = new Bag();
-            _secondBag = new Bag();
+            _bag = new Bag(Category.Clothes);
+            _secondBag = new Bag(Category.Clothes);
             _durance = new Character(_inventoryPrinter, new Inventory(new List<IBag> { _backpack, _bag, _secondBag }));
         }
         [Test]

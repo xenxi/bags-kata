@@ -8,6 +8,13 @@ namespace BagKata
         private const int Capacity = 4;
         private readonly List<string> _items = new List<string>();
 
+        public Bag(Category bagCategory)
+        {
+            Category = bagCategory;
+        }
+
+        public Category Category { get; }
+
         public void Add(string item)
         {
             EnsureHasFreeSlots();

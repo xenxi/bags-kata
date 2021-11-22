@@ -1,7 +1,9 @@
-﻿namespace BagKata
+﻿using System.Collections.Generic;
+
+namespace BagKata
 {
     public interface IInventoryPrinter
     {
-        void Print(IInventory inventory);
+        void Print(IEnumerable<IBag> bags);
     }
 }

@@ -24,7 +24,7 @@ namespace BagKata.Test
         {
             _durance.PrintInventory();
 
-            _printer.Received(1).Print(_inventory);
+            _printer.Received(1).Print(_inventory.GetBags());
         }
 
 
