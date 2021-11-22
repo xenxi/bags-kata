@@ -9,6 +9,15 @@ namespace BagKata.Test
     {
         private InventoryPrinter _inventory;
         private IPrinter _printer;
+
+        [Test]
+        public void no_print_null_inventory()
+        {
+            _inventory.Print(null);
+
+            _printer.Received(0).Print(Arg.Any<string>());
+        }
+
         [Test]
         public void no_print_empty_inventory()
         {

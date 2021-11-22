@@ -16,6 +16,7 @@ namespace BagKata
 
         public void Print(IList<IBag> bags)
         {
+            bags ??= new List<IBag>();
             foreach (var bag in bags)
             {
                 var itemsString = string.Join(", ", bag.GetItems().Select(x => $"'{x}'"));
