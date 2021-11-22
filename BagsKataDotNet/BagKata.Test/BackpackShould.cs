@@ -1,91 +1,89 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
+using System;
 
 namespace BagKata.Test
 {
     [TestFixture]
     public class BackpackShould
     {
-        [Test]
-        public void store_a_item()
-        {
-            var aGivenItem = "anyItem";
-            var bag = new Backpack();
+        private Backpack _backpack;
 
-            bag.Add(aGivenItem);
-
-            bag.GetItems().Should().ContainSingle(aGivenItem);
-        }
         [Test]
-        public void has_4_free_slots_when_its_empty()
+        public void be_full_when_add_8_items()
         {
-            var bag = new Backpack();
-            
-            bag.FreeSlots().Should().Be(8);
+            var isFull = AGivenFullBackpack().IsFull();
+
+            isFull.Should().BeTrue();
         }
 
         [Test]
         public void be_not_full_when_its_empty()
         {
-            var bag = new Backpack();
-
-            bag.IsFull().Should().BeFalse();
-        }
-        [Test]
-        public void has_7_free_slots_when_add_1_item()
-        {
-            var bag = new Backpack();
-
-            bag.Add("anyItem");
-
-            bag.FreeSlots().Should().Be(7);
+            _backpack.IsFull().Should().BeFalse();
         }
 
         [Test]
         public void has_0_free_slots_when_add_8_items()
         {
-            var bag = AGivenFullBackpack();
-
-            var freeSlots = bag.FreeSlots();
+            var freeSlots = AGivenFullBackpack().FreeSlots();
 
             freeSlots.Should().Be(0);
         }
 
         [Test]
-        public void be_full_when_add_8_items()
+        public void has_4_free_slots_when_its_empty()
         {
-            var bag = AGivenFullBackpack();
-
-            var isFull = bag.IsFull();
-
-            isFull.Should().BeTrue();
+            _backpack.FreeSlots().Should().Be(8);
         }
 
-        private static Backpack AGivenFullBackpack()
+        [Test]
+        public void has_7_free_slots_when_add_1_item()
         {
-            var bag = new Backpack();
-            for (int i = 0; i < 8; i++)
-                bag.Add("anyItem");
-            return bag;
+            _backpack.Add("anyItem");
+
+            _backpack.FreeSlots().Should().Be(7);
         }
 
         [Test]
         public void no_allow_add_new_item_when_its_full()
         {
-            var bag = new Backpack();
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
+            _backpack.Add("anyItem");
+            _backpack.Add("anyItem");
+            _backpack.Add("anyItem");
+            _backpack.Add("anyItem");
+            _backpack.Add("anyItem");
+            _backpack.Add("anyItem");
+            _backpack.Add("anyItem");
+            _backpack.Add("anyItem");
 
-            Action action = () => bag.Add("anyOtherItem");
+            Action action = () => _backpack.Add("anyOtherItem");
 
             action.Should().Throw<InvalidOperationException>();
+        }
+
+        [SetUp]
+        public void SetUp()
+        {
+            _backpack = new Backpack();
+        }
+
+        [Test]
+        public void store_a_item()
+        {
+            var aGivenItem = "anyItem";
+
+            _backpack.Add(aGivenItem);
+
+            _backpack.GetItems().Should().ContainSingle(aGivenItem);
+        }
+
+        private static Backpack AGivenFullBackpack()
+        {
+            var backpack = new Backpack();
+            for (int i = 0; i < 8; i++)
+                backpack.Add("anyItem");
+            return backpack;
         }
     }
 }
