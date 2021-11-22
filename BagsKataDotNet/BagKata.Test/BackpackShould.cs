@@ -60,18 +60,12 @@ namespace BagKata.Test
         }
 
         [Test]
-        public void be_full_when_not_have_free_slots()
+        public void be_full_when_add_8_items()
         {
             var bag = new Backpack();
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            
-            bag.Add("anyItem");
+
+            for (int i = 0; i < 8; i++)
+                bag.Add("anyItem");
 
             bag.IsFull().Should().BeTrue();
         }
