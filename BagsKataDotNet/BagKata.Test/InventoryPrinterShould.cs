@@ -11,7 +11,7 @@ namespace BagKata.Test
         private IPrinter _printer;
 
         [Test]
-        public void print_empty_inventory()
+        public void print_inventory_with_empty_bags()
         {
             var aGivenBags = new List<IBag>
             {
