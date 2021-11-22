@@ -7,7 +7,7 @@ namespace BagKata
     {
 
 
-        private IList<IBag> _bags;
+        private readonly IList<IBag> _bags;
 
 
         public Inventory(IList<IBag> bags)
@@ -27,7 +27,7 @@ namespace BagKata
             }
         }
 
-        public IEnumerable<IBag> GetBags() => _bags;
+        public IList<IBag> GetBags() => _bags;
 
         public IEnumerable<string> GetItems() => _bags.SelectMany(x => x.GetItems());
     }

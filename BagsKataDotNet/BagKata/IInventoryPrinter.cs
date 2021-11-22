@@ -4,6 +4,6 @@ namespace BagKata
 {
     public interface IInventoryPrinter
     {
-        void Print(IEnumerable<IBag> bags);
+        void Print(IList<IBag> bags);
     }
 }
