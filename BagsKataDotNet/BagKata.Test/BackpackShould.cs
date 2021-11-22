@@ -48,16 +48,9 @@ namespace BagKata.Test
         [Test]
         public void no_allow_add_new_item_when_its_full()
         {
-            _backpack.Add("anyItem");
-            _backpack.Add("anyItem");
-            _backpack.Add("anyItem");
-            _backpack.Add("anyItem");
-            _backpack.Add("anyItem");
-            _backpack.Add("anyItem");
-            _backpack.Add("anyItem");
-            _backpack.Add("anyItem");
+            var aGivenFullBackpack = AGivenFullBackpack();
 
-            Action action = () => _backpack.Add("anyOtherItem");
+            Action action = () => aGivenFullBackpack.Add("anyOtherItem");
 
             action.Should().Throw<InvalidOperationException>();
         }
