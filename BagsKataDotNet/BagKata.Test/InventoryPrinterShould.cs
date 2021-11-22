@@ -35,10 +35,10 @@ namespace BagKata.Test
         }
 
         [TestCase(Category.NoCategory, "bag_with_no_category = []")]
-        [TestCase(Category.Metals, "bag_with_metals = []")]
-        [TestCase(Category.Weapons, "bag_with_weapons = []")]
-        [TestCase(Category.Clothes, "bag_with_clothes = []")]
-        [TestCase(Category.Herbs, "bag_with_herbs = []")]
+        [TestCase(Category.Metals, "bag_with_metals_category = []")]
+        [TestCase(Category.Weapons, "bag_with_weapons_category = []")]
+        [TestCase(Category.Clothes, "bag_with_clothes_category = []")]
+        [TestCase(Category.Herbs, "bag_with_herbs_category = []")]
         public void print_bag_with_category(Category bagCategory, string expected)
         {
             _inventory.Print(new List<IBag> { new Bag(bagCategory) });
