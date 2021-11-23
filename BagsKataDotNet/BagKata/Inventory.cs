@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BagKata
 {
@@ -14,15 +15,8 @@ namespace BagKata
 
         public void Add(string leather)
         {
-            foreach (var bag in _bags)
-            {
-                if (!bag.IsFull())
-                {
-                    bag.Add(leather);
-                    return;
-                }
-            }
-            throw new InvalidOperationException("no free space in inventory");
+            var bagWithSpace = _bags.FirstOrDefault(bag => !bag.IsFull()) ?? throw new InvalidOperationException("no free space in inventory");
+            bagWithSpace.Add(leather);
         }
 
         public IList<IBag> GetBags() => _bags;
