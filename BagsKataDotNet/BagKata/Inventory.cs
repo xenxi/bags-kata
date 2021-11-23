@@ -13,11 +13,11 @@ namespace BagKata
             _bags = bags;
         }
 
-        public void Add(string leather)
-        {
-            var bagWithSpace = _bags.FirstOrDefault(bag => !bag.IsFull()) ?? throw new InvalidOperationException("no free space in inventory");
-            bagWithSpace.Add(leather);
-        }
+        public void Add(string leather) => FirstBagWithSpace().Add(leather);
+
+        private IBag FirstBagWithSpace() =>
+            _bags.FirstOrDefault(bag => !bag.IsFull()) ??
+            throw new InvalidOperationException("no free space in inventory");
 
         public IList<IBag> GetBags() => _bags;
     }
