@@ -76,7 +76,31 @@ namespace BagKata.Test
                 _printer.Print("bag_with_no_category = []");
             });
         }
+        [Test]
+        public void print_organizing_item_after_cast_spell()
+        {
+            _durance.Add("Leather");
+            _durance.Add("Iron");
+            _durance.Add("Copper");
+            _durance.Add("Marigold");
+            _durance.Add("Wool");
+            _durance.Add("Gold");
+            _durance.Add("Silk");
+            _durance.Add("Copper");
+            _durance.Add("Copper");
+            _durance.Add("Cherry Blossom");
 
+            _durance.PrintInventory();
+
+            Received.InOrder(() =>
+            {
+                _printer.Print("backpack = ['Cherry Blossom', 'Iron', 'Leather', 'Marigold', 'Silk', 'Wool']");
+                _printer.Print("bag_with_metals_category = ['Copper', 'Copper', 'Copper', 'Gold']");
+                _printer.Print("bag_with_no_category = []");
+                _printer.Print("bag_with_weapons_category = []");
+                _printer.Print("bag_with_no_category = []");
+            });
+        }
     }
 }
 
