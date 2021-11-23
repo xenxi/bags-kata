@@ -10,7 +10,7 @@ namespace BagKata.Test
         private IBag _backpack;
         private IBag _bag;
         private IBag _secondBag;
-        private IInventory _inventory;
+        private Inventory _inventory;
 
         [SetUp]
         public void SetUp()
@@ -37,6 +37,7 @@ namespace BagKata.Test
             var aGivenAnyItem = "anyItem";
             _backpack.IsFull().Returns(true);
             _bag.IsFull().Returns(true);
+
             _inventory.Add(aGivenAnyItem);
 
             _secondBag.Received(1).Add(aGivenAnyItem);
@@ -46,6 +47,7 @@ namespace BagKata.Test
         {
             var aGivenAnyItem = "anyItem";
             _backpack.IsFull().Returns(true);
+
             _inventory.Add(aGivenAnyItem);
 
             _bag.Received(1).Add(aGivenAnyItem);

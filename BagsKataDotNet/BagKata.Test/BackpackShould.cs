@@ -64,7 +64,7 @@ namespace BagKata.Test
         [Test]
         public void store_a_item()
         {
-            var aGivenItem = "anyItem";
+            const string aGivenItem = "anyItem";
 
             _backpack.Add(aGivenItem);
 

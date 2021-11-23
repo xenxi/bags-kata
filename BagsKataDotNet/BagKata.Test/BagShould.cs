@@ -10,7 +10,7 @@ namespace BagKata.Test
         [Test]
         public void store_a_item()
         {
-            var aGivenItem = "anyItem";
+            const string aGivenItem = "anyItem";
             var bag = new Bag(Category.NoCategory);
 
             bag.Add(aGivenItem);
@@ -21,7 +21,7 @@ namespace BagKata.Test
         public void has_4_free_slots_when_its_empty()
         {
             var bag = new Bag(Category.NoCategory);
-            
+
             bag.FreeSlots().Should().Be(4);
         }
 

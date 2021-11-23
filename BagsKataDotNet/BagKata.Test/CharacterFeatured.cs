@@ -76,6 +76,7 @@ namespace BagKata.Test
                 _printer.Print("bag_with_no_category = []");
             });
         }
+
     }
 }
 
