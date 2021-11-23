@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using FluentAssertions;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -51,6 +53,19 @@ namespace BagKata.Test
             _inventory.Add(aGivenAnyItem);
 
             _bag.Received(1).Add(aGivenAnyItem);
+        }
+
+        [Test]
+        public void no_allow_add_new_item_when_its_full()
+        {
+            const string aGivenAnyItem = "anyItem";
+            _backpack.IsFull().Returns(true);
+            _bag.IsFull().Returns(true);
+            _secondBag.IsFull().Returns(true);
+
+            Action action = () => _inventory.Add(aGivenAnyItem);
+
+            action.Should().Throw<InvalidOperationException>();
         }
     }
 }

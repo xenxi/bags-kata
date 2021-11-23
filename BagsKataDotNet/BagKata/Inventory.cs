@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace BagKata
 {
@@ -21,6 +22,7 @@ namespace BagKata
                     return;
                 }
             }
+            throw new InvalidOperationException("no free space in inventory");
         }
 
         public IList<IBag> GetBags() => _bags;
