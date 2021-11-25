@@ -25,7 +25,7 @@ namespace BagKata.Test
                 new Bag(Category.NoCategory),
             };
 
-            _durance = new Character(_inventoryPrinter, new Inventory(bags));
+            _durance = new Character(_inventoryPrinter, new Inventory(bags), new SortSpell());
         }
         [Test]
         public void print_full_backpack()
@@ -89,6 +89,7 @@ namespace BagKata.Test
             _durance.Add("Copper");
             _durance.Add("Copper");
             _durance.Add("Cherry Blossom");
+            _durance.SortInventory();
 
             _durance.PrintInventory();
 
