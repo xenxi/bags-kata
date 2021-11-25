@@ -67,5 +67,15 @@ namespace BagKata.Test
 
             action.Should().Throw<InvalidOperationException>();
         }
+        [Test]
+        public void be_empty_when_all_bags_are_empty()
+        {
+            _backpack.IsEmpty().Returns(true);
+            _bag.IsEmpty().Returns(true);
+            _secondBag.IsEmpty().Returns(true);
+
+            _inventory.IsEmpty().Should().BeTrue();
+        }
+
     }
 }

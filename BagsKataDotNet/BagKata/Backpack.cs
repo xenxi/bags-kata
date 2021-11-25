@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BagKata
 {
@@ -26,5 +27,7 @@ namespace BagKata
         public Category Category => Category.NoCategory;
 
         public bool IsFull() => FreeSlots() < 1;
+
+        public bool IsEmpty() => !_items.Any();
     }
 }

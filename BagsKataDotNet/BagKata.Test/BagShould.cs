@@ -81,5 +81,12 @@ namespace BagKata.Test
 
             action.Should().Throw<InvalidOperationException>();
         }
+
+        [Test]
+        public void be_empty_when_no_has_items() {
+            var bag = new Bag(Category.NoCategory);
+
+            bag.IsEmpty().Should().BeTrue();
+        }
     }
 }

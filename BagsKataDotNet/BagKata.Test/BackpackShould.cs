@@ -70,7 +70,12 @@ namespace BagKata.Test
 
             _backpack.GetItems().Should().ContainSingle(aGivenItem);
         }
+        [Test]
+        public void be_empty_when_no_has_items() {
+            var bag = new Bag(Category.NoCategory);
 
+            bag.IsEmpty().Should().BeTrue();
+        }
         private static Backpack AGivenFullBackpack()
         {
             var backpack = new Backpack();

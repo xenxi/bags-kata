@@ -6,5 +6,6 @@ namespace BagKata
     {
         void Add(string leather);
         IList<IBag> GetBags();
+        bool IsEmpty();
     }
 }

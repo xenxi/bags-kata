@@ -17,6 +17,6 @@
 
         public void PrintInventory() => _inventoryPrinter.Print(_inventory.GetBags());
 
-        public void SortInventory() => _sortSpell.Cast();
+        public void SortInventory() => _sortSpell.Cast(_inventory);
     }
 }

@@ -2,7 +2,7 @@
 {
     public class SortSpell : ISortSpell
     {
-        public void Cast()
+        public IInventory Cast(IInventory inventory)
         {
             throw new System.NotImplementedException();
         }

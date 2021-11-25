@@ -20,5 +20,6 @@ namespace BagKata
             throw new InvalidOperationException("no free space in inventory");
 
         public IList<IBag> GetBags() => _bags;
+        public bool IsEmpty() => _bags.All(x => x.IsEmpty());
     }
 }

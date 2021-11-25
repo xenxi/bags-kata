@@ -34,7 +34,7 @@ namespace BagKata.Test
         {
             _durance.SortInventory();
 
-            _sortSpell.Received(1).Cast();
+            _sortSpell.Received(1).Cast(_inventory);
         }
 
         [SetUp]

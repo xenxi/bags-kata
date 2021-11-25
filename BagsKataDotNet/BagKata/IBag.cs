@@ -8,5 +8,6 @@ namespace BagKata
         bool IsFull();
         IEnumerable<string> GetItems();
         Category Category { get; }
+        bool IsEmpty();
     }
 }
