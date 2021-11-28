@@ -1,5 +1,6 @@
 ﻿using NSubstitute;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace BagKata.Test
 {
@@ -37,6 +38,19 @@ namespace BagKata.Test
             _sortSpell.Received(1).Cast(_inventory);
         }
 
+        [Test]
+        public void update_inventory_when_cast_the_sort_spell()
+        {
+            var aGivenSortedBags = new List<IBag>();
+            var aGivenUpdatedInventory = Substitute.For<IInventory>();
+            aGivenUpdatedInventory.GetBags().Returns(aGivenSortedBags);
+            _sortSpell.Cast(_inventory).Returns(aGivenUpdatedInventory);
+            _durance.SortInventory();
+
+            _durance.PrintInventory();
+
+            _printer.Received(1).Print(aGivenSortedBags);
+        }
         [SetUp]
         public void SetUp()
         {

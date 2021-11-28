@@ -2,10 +2,9 @@
 {
     public class Character
     {
-        private readonly IInventory _inventory;
         private readonly IInventoryPrinter _inventoryPrinter;
         private readonly ISortSpell _sortSpell;
-
+        private IInventory _inventory;
         public Character(IInventoryPrinter printer, IInventory inventory, ISortSpell sortSpell)
         {
             _inventory = inventory;
@@ -17,6 +16,6 @@
 
         public void PrintInventory() => _inventoryPrinter.Print(_inventory.GetBags());
 
-        public void SortInventory() => _sortSpell.Cast(_inventory);
+        public void SortInventory() => _inventory = _sortSpell.Cast(_inventory);
     }
 }
