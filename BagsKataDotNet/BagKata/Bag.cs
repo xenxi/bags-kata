@@ -6,12 +6,13 @@ namespace BagKata
 {
     public class Bag : IBag
     {
-        private const int Capacity = 4;
+        private readonly int _capacity;
         private readonly List<string> _items = new List<string>();
 
-        public Bag(Category bagCategory)
+        public Bag(Category bagCategory, int capacity  = 4)
         {
             Category = bagCategory;
+            _capacity = capacity;
         }
 
         public Category Category { get; }
@@ -29,7 +30,7 @@ namespace BagKata
                 throw new InvalidOperationException("the bag is complete");
         }
 
-        public int FreeSlots() => Capacity - _items.Count;
+        public int FreeSlots() => _capacity - _items.Count;
         public IEnumerable<string> GetItems() => _items.AsReadOnly();
 
         public bool IsFull() => FreeSlots() < 1;

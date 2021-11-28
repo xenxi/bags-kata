@@ -1,33 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace BagKata
+﻿namespace BagKata
 {
-    public class Backpack : IBag
+    public class Backpack : Bag
     {
-        private const int Capacity = 8;
-        private readonly List<string> _items = new List<string>();
-
-        public void Add(string item)
+        public Backpack() : base(Category.NoCategory, 8)
         {
-            EnsureHasFreeSlots();
-
-            _items.Add(item);
         }
-
-        private void EnsureHasFreeSlots()
-        {
-            if (IsFull())
-                throw new InvalidOperationException("the backpack is complete");
-        }
-
-        public int FreeSlots() => Capacity - _items.Count;
-        public IEnumerable<string> GetItems() => _items.AsReadOnly();
-        public Category Category => Category.NoCategory;
-
-        public bool IsFull() => FreeSlots() < 1;
-
-        public bool IsEmpty() => !_items.Any();
     }
 }
