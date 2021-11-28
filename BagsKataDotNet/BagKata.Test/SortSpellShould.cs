@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using FluentAssertions;
-using NSubstitute;
+﻿using FluentAssertions;
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace BagKata.Test
 {
@@ -13,7 +10,8 @@ namespace BagKata.Test
         [Test]
         public void leave_the_inventory_empty_when_casting_spell_and_inventory_has_no_items() {
             var spell = new SortSpell();
-            var aGivenInventory = Substitute.For<IInventory>();
+            var bags = new List<IBag> { new Backpack() };
+            var aGivenInventory = new Inventory(bags);
             
             var sortedInventory = spell.Cast(aGivenInventory);
 

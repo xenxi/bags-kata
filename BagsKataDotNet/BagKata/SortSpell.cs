@@ -4,7 +4,7 @@
     {
         public IInventory Cast(IInventory inventory)
         {
-            throw new System.NotImplementedException();
+            return inventory;
         }
     }
 }
