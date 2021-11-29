@@ -10,7 +10,7 @@ namespace BagKata.Test
         [Test]
         public void store_a_item()
         {
-            const string aGivenItem = "anyItem";
+            var  aGivenItem = ItemMother.Ramdom();
             var bag = new Bag(Category.NoCategory);
 
             bag.Add(aGivenItem);
@@ -37,7 +37,7 @@ namespace BagKata.Test
         {
             var bag = new Bag(Category.NoCategory);
 
-            bag.Add("anyItem");
+            bag.Add(ItemMother.Ramdom());
 
             bag.FreeSlots().Should().Be(3);
         }
@@ -46,11 +46,11 @@ namespace BagKata.Test
         public void has_0_free_slots_when_add_4_items()
         {
             var bag = new Bag(Category.NoCategory);
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
+            bag.Add(ItemMother.Ramdom());
+            bag.Add(ItemMother.Ramdom());
+            bag.Add(ItemMother.Ramdom());
 
-            bag.Add("anyItem");
+            bag.Add(ItemMother.Ramdom());
 
             bag.FreeSlots().Should().Be(0);
         }
@@ -59,11 +59,11 @@ namespace BagKata.Test
         public void be_full_when_not_have_free_slots()
         {
             var bag = new Bag(Category.NoCategory);
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
+            bag.Add(ItemMother.Ramdom());
+            bag.Add(ItemMother.Ramdom());
+            bag.Add(ItemMother.Ramdom());
 
-            bag.Add("anyItem");
+            bag.Add(ItemMother.Ramdom());
 
             bag.IsFull().Should().BeTrue();
         }
@@ -72,12 +72,12 @@ namespace BagKata.Test
         public void no_allow_add_new_item_when_its_full()
         {
             var bag = new Bag(Category.NoCategory);
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
-            bag.Add("anyItem");
+            bag.Add(ItemMother.Ramdom());
+            bag.Add(ItemMother.Ramdom());
+            bag.Add(ItemMother.Ramdom());
+            bag.Add(ItemMother.Ramdom());
 
-            Action action = () => bag.Add("anyOtherItem");
+            Action action = () => bag.Add(ItemMother.Ramdom());
 
             action.Should().Throw<InvalidOperationException>();
         }

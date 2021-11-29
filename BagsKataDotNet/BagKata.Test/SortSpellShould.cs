@@ -17,5 +17,21 @@ namespace BagKata.Test
 
             sortedInventory.IsEmpty().Should().BeTrue();
         }
+
+        [Test]
+        public void moves_items_from_backpack_to_bag_with_item_category()
+        {
+            var spell = new SortSpell();
+            var backpack = new Backpack();
+            var herbsBag = new Bag(Category.Herbs);
+            var bags = new List<IBag> { backpack, herbsBag };
+
+            var aGivenInventory = new Inventory(bags);
+            aGivenInventory.Add(ItemMother.Ramdom(category: Category.Herbs));
+
+            var sortedInventory = spell.Cast(aGivenInventory);
+
+            sortedInventory.IsEmpty().Should().BeTrue();
+        }
     }
 }

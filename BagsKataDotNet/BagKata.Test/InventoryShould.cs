@@ -26,7 +26,7 @@ namespace BagKata.Test
         [Test]
         public void add_item_to_the_backpack()
         {
-            var aGivenAnyItem = "anyItem";
+            var aGivenAnyItem = ItemMother.Ramdom();
 
             _inventory.Add(aGivenAnyItem);
 
@@ -36,7 +36,7 @@ namespace BagKata.Test
         [Test]
         public void add_item_to_the_next_bag_when_previous_ones_are_full()
         {
-            var aGivenAnyItem = "anyItem";
+            var aGivenAnyItem = ItemMother.Ramdom();
             _backpack.IsFull().Returns(true);
             _bag.IsFull().Returns(true);
 
@@ -47,7 +47,7 @@ namespace BagKata.Test
         [Test]
         public void add_item_to_the_bag_when_backpack_is_full()
         {
-            var aGivenAnyItem = "anyItem";
+            var aGivenAnyItem = ItemMother.Ramdom();
             _backpack.IsFull().Returns(true);
 
             _inventory.Add(aGivenAnyItem);
@@ -58,12 +58,11 @@ namespace BagKata.Test
         [Test]
         public void no_allow_add_new_item_when_its_full()
         {
-            const string aGivenAnyItem = "anyItem";
             _backpack.IsFull().Returns(true);
             _bag.IsFull().Returns(true);
             _secondBag.IsFull().Returns(true);
 
-            Action action = () => _inventory.Add(aGivenAnyItem);
+            Action action = () => _inventory.Add(ItemMother.Ramdom());
 
             action.Should().Throw<InvalidOperationException>();
         }

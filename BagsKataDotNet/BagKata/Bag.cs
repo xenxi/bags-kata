@@ -7,7 +7,7 @@ namespace BagKata
     public class Bag : IBag
     {
         private readonly int _capacity;
-        private readonly List<string> _items = new List<string>();
+        private readonly List<Item> _items = new List<Item>();
 
         public Bag(Category bagCategory, int capacity  = 4)
         {
@@ -17,7 +17,7 @@ namespace BagKata
 
         public Category Category { get; }
 
-        public void Add(string item)
+        public void Add(Item item)
         {
             EnsureHasFreeSlots();
 
@@ -31,7 +31,7 @@ namespace BagKata
         }
 
         public int FreeSlots() => _capacity - _items.Count;
-        public IEnumerable<string> GetItems() => _items.AsReadOnly();
+        public IEnumerable<Item> GetItems() => _items.AsReadOnly();
 
         public bool IsFull() => FreeSlots() < 1;
 

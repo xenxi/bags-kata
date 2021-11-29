@@ -64,10 +64,10 @@ namespace BagKata.Test
 
         [TestCase("Space Hampster", "backpack = ['Space Hampster']")]
         [TestCase("Space Tomato", "backpack = ['Space Tomato']")]
-        public void print_one_item_in_the_backpack(string item, string printedBackpack)
+        public void print_one_item_in_the_backpack(string itemName, string printedBackpack)
         {
             var aGivenBackpack = new Backpack();
-            aGivenBackpack.Add(item);
+            aGivenBackpack.Add(ItemMother.Ramdom(itemName));
 
             _inventory.Print(new List<IBag>{aGivenBackpack});
 
@@ -78,8 +78,8 @@ namespace BagKata.Test
         public void print_two_items_in_the_backpack()
         {
             var aGivenBackpack = new Backpack();
-            aGivenBackpack.Add("anyItem");
-            aGivenBackpack.Add("otherItem");
+            aGivenBackpack.Add(ItemMother.Ramdom("anyItem"));
+            aGivenBackpack.Add(ItemMother.Ramdom("otherItem"));
 
             _inventory.Print(new List<IBag> { aGivenBackpack });
 

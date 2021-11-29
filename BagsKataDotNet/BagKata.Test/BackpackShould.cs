@@ -40,7 +40,7 @@ namespace BagKata.Test
         [Test]
         public void has_7_free_slots_when_add_1_item()
         {
-            _backpack.Add("anyItem");
+            _backpack.Add(ItemMother.Ramdom());
 
             _backpack.FreeSlots().Should().Be(7);
         }
@@ -50,7 +50,7 @@ namespace BagKata.Test
         {
             var aGivenFullBackpack = AGivenFullBackpack();
 
-            Action action = () => aGivenFullBackpack.Add("anyOtherItem");
+            Action action = () => aGivenFullBackpack.Add(ItemMother.Ramdom());
 
             action.Should().Throw<InvalidOperationException>();
         }
@@ -64,7 +64,7 @@ namespace BagKata.Test
         [Test]
         public void store_a_item()
         {
-            const string aGivenItem = "anyItem";
+            var aGivenItem = ItemMother.Ramdom();
 
             _backpack.Add(aGivenItem);
 
@@ -80,7 +80,7 @@ namespace BagKata.Test
         {
             var backpack = new Backpack();
             for (int i = 0; i < 8; i++)
-                backpack.Add("anyItem");
+                backpack.Add(ItemMother.Ramdom());
             return backpack;
         }
     }

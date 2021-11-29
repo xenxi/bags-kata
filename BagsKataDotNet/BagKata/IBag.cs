@@ -4,9 +4,9 @@ namespace BagKata
 {
     public interface IBag
     {
-        void Add(string item);
+        void Add(Item item);
         bool IsFull();
-        IEnumerable<string> GetItems();
+        IEnumerable<Item> GetItems();
         Category Category { get; }
         bool IsEmpty();
     }

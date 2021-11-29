@@ -13,7 +13,7 @@ namespace BagKata
             _bags = bags;
         }
 
-        public void Add(string leather) => FirstBagWithSpace().Add(leather);
+        public void Add(Item item) => FirstBagWithSpace().Add(item);
 
         private IBag FirstBagWithSpace() =>
             _bags.FirstOrDefault(bag => !bag.IsFull()) ??

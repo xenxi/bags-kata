@@ -12,7 +12,7 @@
             _sortSpell = sortSpell;
         }
 
-        public void Add(string leather) => _inventory.Add(leather);
+        public void Add(Item item) => _inventory.Add(item);
 
         public void PrintInventory() => _inventoryPrinter.Print(_inventory.GetBags());
 

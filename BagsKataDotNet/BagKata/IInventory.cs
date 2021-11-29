@@ -4,7 +4,7 @@ namespace BagKata
 {
     public interface IInventory
     {
-        void Add(string leather);
+        void Add(Item item);
         IList<IBag> GetBags();
         bool IsEmpty();
     }

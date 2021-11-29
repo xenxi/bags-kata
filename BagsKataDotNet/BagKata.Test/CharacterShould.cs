@@ -15,7 +15,7 @@ namespace BagKata.Test
         [Test]
         public void add_item_to_inventory()
         {
-            var aGivenItem = "anyItem";
+            var aGivenItem = ItemMother.Ramdom();
 
             _durance.Add(aGivenItem);
 
