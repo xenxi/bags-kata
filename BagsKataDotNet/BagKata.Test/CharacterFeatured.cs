@@ -30,14 +30,14 @@ namespace BagKata.Test
         [Test]
         public void print_full_backpack()
         {
-            _durance.Add("Leather");
-            _durance.Add("Iron");
-            _durance.Add("Copper");
-            _durance.Add("Marigold");
-            _durance.Add("Wool");
-            _durance.Add("Gold");
-            _durance.Add("Silk");
-            _durance.Add("Copper");
+            _durance.Add(ItemMother.Ramdom(name: "Leather"));
+            _durance.Add(ItemMother.Ramdom(name: "Iron"));
+            _durance.Add(ItemMother.Ramdom(name: "Copper"));
+            _durance.Add(ItemMother.Ramdom(name: "Marigold"));
+            _durance.Add(ItemMother.Ramdom(name: "Wool"));
+            _durance.Add(ItemMother.Ramdom(name: "Gold"));
+            _durance.Add(ItemMother.Ramdom(name: "Silk"));
+            _durance.Add(ItemMother.Ramdom(name: "Copper"));
 
             _durance.PrintInventory();
 
@@ -54,16 +54,16 @@ namespace BagKata.Test
         [Test]
         public void print_full_backpack_with_two_items_in_the_following_bag()
         {
-            _durance.Add("Leather");
-            _durance.Add("Iron");
-            _durance.Add("Copper");
-            _durance.Add("Marigold");
-            _durance.Add("Wool");
-            _durance.Add("Gold");
-            _durance.Add("Silk");
-            _durance.Add("Copper");
-            _durance.Add("Copper");
-            _durance.Add("Cherry Blossom");
+            _durance.Add(ItemMother.Ramdom(name: "Leather"));
+            _durance.Add(ItemMother.Ramdom(name: "Iron"));
+            _durance.Add(ItemMother.Ramdom(name: "Copper"));
+            _durance.Add(ItemMother.Ramdom(name: "Marigold"));
+            _durance.Add(ItemMother.Ramdom(name: "Wool"));
+            _durance.Add(ItemMother.Ramdom(name: "Gold"));
+            _durance.Add(ItemMother.Ramdom(name: "Silk"));
+            _durance.Add(ItemMother.Ramdom(name: "Copper"));
+            _durance.Add(ItemMother.Ramdom(name: "Copper"));
+            _durance.Add(ItemMother.Ramdom(name: "Cherry Blossom"));
 
             _durance.PrintInventory();
 
@@ -79,16 +79,16 @@ namespace BagKata.Test
         [Test]
         public void print_organizing_item_after_cast_spell()
         {
-            _durance.Add("Leather");
-            _durance.Add("Iron");
-            _durance.Add("Copper");
-            _durance.Add("Marigold");
-            _durance.Add("Wool");
-            _durance.Add("Gold");
-            _durance.Add("Silk");
-            _durance.Add("Copper");
-            _durance.Add("Copper");
-            _durance.Add("Cherry Blossom");
+            _durance.Add(ItemMother.Ramdom(name: "Leather"));
+            _durance.Add(ItemMother.Ramdom(name: "Iron"));
+            _durance.Add(ItemMother.Ramdom(name: "Copper"));
+            _durance.Add(ItemMother.Ramdom(name: "Marigold"));
+            _durance.Add(ItemMother.Ramdom(name: "Wool"));
+            _durance.Add(ItemMother.Ramdom(name: "Gold"));
+            _durance.Add(ItemMother.Ramdom(name: "Silk"));
+            _durance.Add(ItemMother.Ramdom(name: "Copper"));
+            _durance.Add(ItemMother.Ramdom(name: "Copper"));
+            _durance.Add(ItemMother.Ramdom(name: "Cherry Blossom"));
             _durance.SortInventory();
 
             _durance.PrintInventory();

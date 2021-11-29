@@ -68,7 +68,7 @@ namespace BagKata.Test
 
             _backpack.Add(aGivenItem);
 
-            _backpack.GetItems().Should().ContainSingle(aGivenItem);
+            _backpack.GetItems().Should().OnlyContain( x => x == aGivenItem);
         }
         [Test]
         public void be_empty_when_no_has_items() {

@@ -19,7 +19,7 @@ namespace BagKata
             bags ??= new List<IBag>();
             foreach (var bag in bags)
             {
-                var itemsString = string.Join(", ", bag.GetItems().Select(x => $"'{x}'"));
+                var itemsString = string.Join(", ", bag.GetItems().Select(x => $"'{x.Name}'"));
                 var bagType = BagTypeToString(bag);
                 var data = $"{bagType} = [{itemsString}]";
                 _printer.Print(data);

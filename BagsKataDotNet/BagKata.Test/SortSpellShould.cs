@@ -22,16 +22,15 @@ namespace BagKata.Test
         public void moves_items_from_backpack_to_bag_with_item_category()
         {
             var spell = new SortSpell();
+            var aGivenHerbItem = ItemMother.Ramdom(category: Category.Herbs);
             var backpack = new Backpack();
             var herbsBag = new Bag(Category.Herbs);
-            var bags = new List<IBag> { backpack, herbsBag };
+            var aGivenInventory = new Inventory(new List<IBag> { backpack, herbsBag });
+            herbsBag.Add(aGivenHerbItem);
 
-            var aGivenInventory = new Inventory(bags);
-            aGivenInventory.Add(ItemMother.Ramdom(category: Category.Herbs));
+            spell.Cast(aGivenInventory);
 
-            var sortedInventory = spell.Cast(aGivenInventory);
-
-            sortedInventory.IsEmpty().Should().BeTrue();
+            herbsBag.GetItems().Should().OnlyContain(x => x == aGivenHerbItem);
         }
     }
 }
