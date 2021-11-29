@@ -8,14 +8,15 @@ namespace BagKata.Test
     public class SortSpellShould
     {
         [Test]
-        public void leave_the_inventory_empty_when_casting_spell_and_inventory_has_no_items() {
+        public void leave_the_inventory_empty_when_casting_spell_and_inventory_has_no_items()
+        {
             var spell = new SortSpell();
             var bags = new List<IBag> { new Backpack() };
             var aGivenInventory = new Inventory(bags);
-            
-            var sortedInventory = spell.Cast(aGivenInventory);
 
-            sortedInventory.IsEmpty().Should().BeTrue();
+            spell.Cast(aGivenInventory);
+
+            aGivenInventory.IsEmpty().Should().BeTrue();
         }
 
         [Test]
@@ -26,7 +27,7 @@ namespace BagKata.Test
             var backpack = new Backpack();
             var herbsBag = new Bag(Category.Herbs);
             var aGivenInventory = new Inventory(new List<IBag> { backpack, herbsBag });
-            herbsBag.Add(aGivenHerbItem);
+            backpack.Add(aGivenHerbItem);
 
             spell.Cast(aGivenInventory);
 

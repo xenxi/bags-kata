@@ -2,6 +2,6 @@
 {
     public interface ISortSpell
     {
-        IInventory Cast(IInventory inventory);
+        void Cast(IInventory inventory);
     }
 }

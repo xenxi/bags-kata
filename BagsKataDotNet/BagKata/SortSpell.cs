@@ -2,9 +2,9 @@
 {
     public class SortSpell : ISortSpell
     {
-        public IInventory Cast(IInventory inventory)
+        public void Cast(IInventory inventory)
         {
-            return inventory;
+             //inventory;
         }
     }
 }

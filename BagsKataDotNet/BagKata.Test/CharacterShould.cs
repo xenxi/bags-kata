@@ -38,25 +38,6 @@ namespace BagKata.Test
             _sortSpell.Received(1).Cast(_inventory);
         }
 
-        [Test]
-        public void update_inventory_when_cast_the_sort_spell()
-        {
-            var aGivenSortedBags = new List<IBag>();
-            ShouldSort(aGivenSortedBags);
-            _durance.SortInventory();
-
-            _durance.PrintInventory();
-
-            _printer.Received(1).Print(aGivenSortedBags);
-        }
-
-        private void ShouldSort(List<IBag> aGivenSortedBags)
-        {
-            var aGivenUpdatedInventory = Substitute.For<IInventory>();
-            aGivenUpdatedInventory.GetBags().Returns(aGivenSortedBags);
-            _sortSpell.Cast(_inventory).Returns(aGivenUpdatedInventory);
-        }
-
         [SetUp]
         public void SetUp()
         {
